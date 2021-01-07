@@ -11,10 +11,14 @@ body {
   font-family: "Noto Sans JP", sans-serif;
   font-size: 16px;
 }
-h1 {
+.titulo {
   text-align: center;
   font-size: 3.8rem;
 }
 span {
   font-size: 2rem;
+}
+.container{
+    max-width: 90rem;
+    margin: 0 auto;
 }
