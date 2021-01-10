@@ -46,20 +46,26 @@ p {
     font-weight: bold;
     text-transform: uppercase;
 }
-@media (min-width:480px){
-    .column-drop-flex{
+
+
+/* Contenido Aqui */
+
+@media (min-width:40rem) {
+    .column-drop-flex {
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
     }
-    .contenido-principal, .primera{
+    .contenido-principal,
+    .primera {
         flex-basis: calc(50% - 1rem);
     }
 }
-@media (min-width:850px){
-    .column-drop-flex,
+
+@media (min-width:76rem) {
+    .contenido-principal,
     .segunda,
     .primera {
-        flex: 1;
+        flex: 0 0 calc(33.3% - 2rem);
     }
 }

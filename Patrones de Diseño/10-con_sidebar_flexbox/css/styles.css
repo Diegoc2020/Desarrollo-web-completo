@@ -46,16 +46,20 @@ p {
     font-weight: bold;
     text-transform: uppercase;
 }
-@media (min-width:768px){
-    .con-sidebar{
+
+@media (min-width:76rem) {
+    .con-sidebar {
         display: flex;
-        justify-content: space-between;
+        /* justify-content: space-between; */
+        gap: 2rem;
     }
-    aside{
+    aside {
         flex: 0 0 calc(33.3% - 2rem);
-        order: -1; /* Esto hace que la columna final quede de primeras */
+        /* flex: 1; forma de decirle, por cada pixel 1 para aside 3 para article, relacion 3 a 1 */
+        /* Esto hace que la columna final quede de primeras */
     }
-    article{
+    article {
         flex: 0 0 calc(66.7% - 2rem);
+        /* flex: 3; */
     }
 }

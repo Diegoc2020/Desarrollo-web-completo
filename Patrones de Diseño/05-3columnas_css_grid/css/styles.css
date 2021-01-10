@@ -10,7 +10,7 @@ html {
 }
 
 body {
-    font-family: 'Raleway', sans-serif;
+    font-family: "Raleway", sans-serif;
     font-size: 1.6rem;
     line-height: 2;
 }
@@ -39,18 +39,27 @@ p {
 
 .entrada-blog a {
     display: inline-block;
-    background-color: #2196F3;
+    background-color: #2196f3;
     color: white;
     padding: 10px 20px;
     text-decoration: none;
     font-weight: bold;
     text-transform: uppercase;
 }
-@media (min-width:768px){
+
+@media (min-width: 768px) {
     .contenedor-grid {
         display: grid;
-        grid-template-columns: 700 px repeat(2, 1fr 1fr);
-        grid-template-columns: 60% 20% 20%;
+        grid-template-areas: "izq cont derecha";
+        /* Creamos e imaginamos areas para luego utilizarlas */
+        grid-template-columns: 1fr 3fr 1fr;
         column-gap: 2rem;
+        grid-auto-flow: column;
+    }
+    .contenido__principal {
+        grid-area: cont;
+    }
+    .sidebar-1 {
+        grid-area: izq;
     }
 }
