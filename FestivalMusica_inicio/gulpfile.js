@@ -1,7 +1,24 @@
-const { series } = require('gulp');
+const { series, src, dest, watch } = require('gulp');
+const sass = require('gulp-sass');
+// Funcion que compila SASS
 
-function hola() {
-    console.log('Hola Mundo en Gulp');
+function css() {
+    return src('src/scss/app.scss')
+        .pipe(sass({
+            outputStyle: 'expanded'
+        }))
+        .pipe( dest('./build/css') )
 }
-
-exports.hola = hola;
+function minificarCss() {
+    return src('src/scss/app.scss')
+        .pipe(sass({
+            outputStyle:'expanded'
+        }))
+        .pipe(dest('./build/css'))
+}
+function watchCss() {
+    watch('src/scss/**/*.scss', css)/* *= La carpeta Actual - ** = Todos los archivos con esa extension */
+}
+exports.minificarCss = minificarCss;
+exports.css = css;
+exports.watchCss = watchCss;
