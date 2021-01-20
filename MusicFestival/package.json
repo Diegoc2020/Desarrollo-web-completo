@@ -18,5 +18,8 @@
     "Gulp"
   ],
   "author": "Diego Carreño",
-  "license": "ISC"
+  "license": "ISC",
+  "devDependencies": {
+    "gulp": "^4.0.2"
+  }
 }
