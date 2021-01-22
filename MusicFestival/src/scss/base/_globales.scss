@@ -19,7 +19,7 @@ p {
     color: $negro;
 }
 
-.container {
+.contenedor {
     max-width: 120rem;
     width: 90%;
     margin: 0 auto;
@@ -32,9 +32,13 @@ a {
 img {
     max-width: 100%;
 }
-h1,h2,h3{
+
+h1,
+h2,
+h3 {
     margin: 0;
 }
+
 h1 {
     font-size: 4rem;
 }
