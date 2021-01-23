@@ -3,10 +3,12 @@ const sass = require('gulp-sass')
 const imageMin = require('gulp-imagemin')
 const notify = require('gulp-notify')
 const webp = require('gulp-webp')
+const concat = require('gulp-concat')
 
 const paths = {
     pImagenes: 'src/img/**/*',
-    pAppScss: 'src/scss/**/*.scss'
+    pAppScss: 'src/scss/**/*.scss',
+    js: 'src/js/**/*.js'
 }
 
 // Funcion que compila SASS
@@ -24,12 +26,17 @@ function minificarCss() {
         }))
         .pipe(dest('./build/css'))
 }
+function javascript() {
+    return src(paths.js)
+        .pipe(concat('bundle.js'))
+        .pipe(dest('./build/js'))
+}
 
 function imagenes() {
     return src(paths.pImagenes)
         .pipe(imageMin())
         .pipe(dest('./build/img'))
-    .pipe(notify({message: 'Imagen Minificada'}))
+        .pipe(notify({ message: 'Imagen Minificada' }))
 }
 function versionWebp() {
     return src(paths.pImagenes)
@@ -41,8 +48,9 @@ function versionWebp() {
 
 function watchCss() {
     watch(paths.pAppScss, css)
+    watch(paths.js, javascript)
 }
 exports.css = css
 exports.imagenes = imagenes
 exports.watchCss = watchCss
-exports.default = series(css, imagenes, versionWebp, watchCss)
+exports.default = series(css, javascript, imagenes, versionWebp, watchCss)
