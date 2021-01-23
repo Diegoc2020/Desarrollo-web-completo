@@ -483,3 +483,34 @@ h3 {
   font-size: 2rem;
   padding: 1rem 2rem;
 }
+
+.info-festival {
+  padding: 5rem 0;
+}
+
+@media (min-width: 768px) {
+  .info-festival {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 5rem;
+  }
+}
+
+.info-festival .info-festival__img {
+  margin-bottom: 2.5rem;
+}
+
+.infor-festival {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+}
+
+.infor-festival .info-festival__fecha {
+  color: #f53756;
+  font-weight: 900;
+}
+
+.infor-festival .info-festival__parrafo {
+  line-height: 1.7;
+}

@@ -1,0 +1,28 @@
+.info-festival {
+    padding: $separacion 0;
+
+    @include tablet {
+        @include DGrid(2, $separacion);
+    }
+
+    .info-festival__img {
+        margin-bottom: $separacion / 2;
+    }
+
+
+}
+
+.infor-festival {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    .info-festival__fecha {
+        color: $rosa;
+        font-weight: $black;
+    }
+
+    .info-festival__parrafo {
+        line-height: 1.7;
+    }
+}
