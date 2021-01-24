@@ -4,6 +4,9 @@ const imageMin = require('gulp-imagemin')
 const notify = require('gulp-notify')
 const webp = require('gulp-webp')
 const concat = require('gulp-concat')
+// Utilidades css
+
+
 
 const paths = {
     pImagenes: 'src/img/**/*',
