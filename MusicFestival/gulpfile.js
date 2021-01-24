@@ -10,7 +10,9 @@ const autoprefixer = require('autoprefixer')
 const postcss = require('gulp-postcss')
 const cssnano = require('cssnano')
 const sourceMaps = require('gulp-sourcemaps')
-
+// Utilidades JS
+const terser = require('gulp-terser-js')
+const rename = require('gulp-rename')
 
 const paths = {
     pImagenes: 'src/img/**/*',
@@ -28,16 +30,13 @@ function css() {
         .pipe(dest('./build/css'))
 }
 
-function minificarCss() {
-    return src(paths.pAppScss)
-        .pipe(sass({
-            outputStyle: 'compressed'
-        }))
-        .pipe(dest('./build/css'))
-}
 function javascript() {
     return src(paths.js)
+        .pipe(sourceMaps.init())
         .pipe(concat('bundle.js'))
+        .pipe(terser())
+        .pipe(sourceMaps.write('.'))
+        .pipe(rename({suffix:'.min'}))
         .pipe(dest('./build/js'))
 }
 
