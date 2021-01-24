@@ -5,7 +5,8 @@ const notify = require('gulp-notify')
 const webp = require('gulp-webp')
 const concat = require('gulp-concat')
 // Utilidades css
-
+const autoprefixer = require('autoprefixer')
+const postcss = require('gulp-postcss')
 
 
 const paths = {
@@ -20,8 +21,10 @@ function css() {
         .pipe(sass({
             outputStyle: 'expanded'
         }))
+        .pipe(postcss(autoprefixer()))
         .pipe(dest('./build/css'))
 }
+
 function minificarCss() {
     return src(paths.pAppScss)
         .pipe(sass({
