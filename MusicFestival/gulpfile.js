@@ -4,9 +4,12 @@ const imageMin = require('gulp-imagemin')
 const notify = require('gulp-notify')
 const webp = require('gulp-webp')
 const concat = require('gulp-concat')
+
 // Utilidades css
 const autoprefixer = require('autoprefixer')
 const postcss = require('gulp-postcss')
+const cssnano = require('cssnano')
+const sourceMaps = require('gulp-sourcemaps')
 
 
 const paths = {
@@ -18,10 +21,10 @@ const paths = {
 // Funcion que compila SASS
 function css() {
     return src(paths.pAppScss)
-        .pipe(sass({
-            outputStyle: 'expanded'
-        }))
-        .pipe(postcss(autoprefixer()))
+        .pipe(sourceMaps.init())
+        .pipe(sass())
+        .pipe(postcss([autoprefixer(), cssnano()]))
+        .pipe(sourceMaps.write('.'))
         .pipe(dest('./build/css'))
 }
 
